@@ -4,6 +4,7 @@ const questionHtml = $("#questions")
 
 //holds finalized questions to push into survey.html
 var qArray = [];
+var fullq =[];
 
 //holds questions themselves
 var questions = ["Intelligence is important to me","I enjoy spending time with other people",
@@ -19,8 +20,11 @@ var newQuestion = () =>{
 	}
 	for(let j = 0; j<qArray.length; j++) {
 		let qNumber = j + 1;
-		console.log("Question " + qNumber + " " + qArray[j].text + "<br>" qArray[j].response);
+		
+		fullq.push("Question " + qNumber + ": " + qArray[j].text + "<br>" + "<form><input type ='radio' name='option' value='qArray[j].response'</form>" + "<br>");
+
 	}
+		$("#questions").html(fullq);
 };
 
 newQuestion();
